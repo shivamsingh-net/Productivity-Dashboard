@@ -1,0 +1,879 @@
+:root {
+  --pre: #FCDEC0;
+  --sec: #121212;
+  --tri1: #0b0b0b;
+  --tri2: #B4846C;
+  --red: rgba(255,255,255,.05);
+  --green: rgba(21, 107, 21, 0.338);
+  --blue: rgba(0, 0, 255, 0.267);
+}
+
+@font-face {
+  font-family: light;
+  src: url(./AeonikTRIAL-Light.otf);
+}
+@font-face {
+  font-family: normal;
+  src: url(./AeonikTRIAL-Regular.otf);
+}
+@font-face {
+  font-family: bold;
+  src: url(./AeonikTRIAL-Bold.otf);
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: normal;
+  color: var(--pre);
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+}
+
+#main {
+  height: 100%;
+  width: 100%;
+  background-color: var(--sec);
+}
+#main section.allelem {
+  height: 100%;
+  width: 100%;
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  position: absolute;
+  overflow-y: auto;
+}
+#main section.allelem .allfeature {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+}
+
+#main section.allelem header {
+   transition: all 0.5s ease;
+  position: relative;
+  overflow: hidden;
+  height: 190px;
+  width: 100%;
+  background-size: cover;
+  background-position: 0% 70%;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40px;
+  flex-shrink: 0;
+}
+#main section.allelem header::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.25);
+}
+#main section.allelem header .header1, #main section.allelem header .header2 {
+  position: relative;
+  z-index: 2;
+}
+#main section.allelem header .header1 h1 {
+  font-size: 50px;
+  font-weight: 500;
+  margin-bottom: 30px;
+}
+#main section.allelem header .header1 h2 {
+  padding: 0 0 10px;
+  font-size: 28px;
+  font-weight: 400;
+}
+#main section.allelem header .header1 h3 {
+  font-size: 30px;
+  font-weight: 400;
+}
+#main section.allelem header .header2 {
+  text-align: right;
+}
+#main section.allelem header .header2 h1 {
+  font-size: 38px;
+  font-weight: 400;
+}
+#main section.allelem header .header2 h4 {
+  font-size: 26px;
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+#main section.allelem header .header2 h3 {
+  font-weight: 500;
+}
+@media (max-width: 768px) {
+  #main section.allelem header {
+    height: auto;
+    padding: 20px 24px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  #main section.allelem header .header1 h1 {
+    font-size: 32px;
+    margin-bottom: 8px;
+  }
+  #main section.allelem header .header1 h2 {
+    font-size: 18px;
+  }
+  #main section.allelem header .header1 h3 {
+    font-size: 18px;
+  }
+  #main section.allelem header .header2 {
+    text-align: left;
+  }
+  #main section.allelem header .header2 h1 {
+    font-size: 26px;
+  }
+  #main section.allelem header .header2 h4 {
+    font-size: 16px;
+    margin-bottom: 8px;
+  }
+  #main section.allelem header .header2 h3 {
+    font-size: 13px;
+  }
+}
+@media (max-width: 480px) {
+  #main section.allelem header {
+    padding: 16px;
+  }
+  #main section.allelem header .header1 h1 {
+    font-size: 24px;
+  }
+  #main section.allelem header .header1 h2 {
+    font-size: 14px;
+  }
+  #main section.allelem header .header1 h3 {
+    font-size: 14px;
+  }
+  #main section.allelem header .header2 h1 {
+    font-size: 20px;
+  }
+  #main section.allelem header .header2 h4 {
+    font-size: 13px;
+  }
+}
+#main .elem {
+  cursor: pointer;
+  margin-top: 20px;
+  position: relative;
+  transition: all ease 0.2s;
+  height: 340px;
+  width: 210px;
+  font-size: 17px;
+  text-align: center;
+  border-radius: 20px;
+  background-color: rgb(169, 107, 107);
+}
+#main .elem img {
+  border-radius: 20px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  height: 100%;
+  width: 100%;
+}
+#main .elem h3 {
+  position: absolute;
+  left: 50%;
+  bottom: -10px;
+  transform: translateX(-50%);
+  width: 100%;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 400;
+}
+#main .elem:active {
+  scale: 0.95;
+}
+#main .elem:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 35px rgba(255, 221, 1, 0.224);
+}
+@media (max-width: 768px) {
+  #main .elem {
+    height: 240px;
+    width: 155px;
+  }
+  #main .elem h3 {
+    font-size: 14px;
+  }
+}
+@media (max-width: 480px) {
+  #main .elem {
+    height: 180px;
+    width: 140px;
+  }
+  #main .elem h3 {
+    font-size: 13px;
+  }
+}
+#main .fullelem {
+  height: 100%;
+  width: 100%;
+  background-color: var(--sec);
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  overflow-y: auto;
+}
+#main .fullelem > h2 {
+  padding: 30px 30px 10px;
+  font-size: 26px;
+}
+@media (max-width: 768px) {
+  #main .fullelem > h2 {
+    font-size: 20px;
+    padding: 20px 20px 8px;
+  }
+}
+@media (max-width: 480px) {
+  #main .fullelem > h2 {
+    font-size: 17px;
+    padding: 16px 16px 6px;
+  }
+}
+#main .fullelem .back {
+  position: absolute;
+  cursor: pointer;
+  top: 5%;
+  right: 5%;
+  font-weight: 400;
+  font-size: 15px;
+  color: var(--pre);
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+  padding: 10px 20px;
+  border-radius: 20px;
+  transition: all ease 0.2s;
+}
+#main .fullelem .back:active {
+  scale: 0.97;
+}
+#main .fullelem .back:hover {
+  box-shadow: 0 0 12px rgba(212, 175, 55, 0.25);
+}
+@media (max-width: 480px) {
+  #main .fullelem .back {
+    font-size: 12px;
+    padding: 8px 14px;
+    top: 3%;
+    right: 3%;
+  }
+}
+#main .todofullpage .todo-conatainer {
+  height: 78%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40px;
+}
+@media (max-width: 768px) {
+  #main .todofullpage .todo-conatainer {
+    flex-direction: column;
+    height: auto;
+    padding: 0 20px 20px;
+    gap: 20px;
+    align-items: stretch;
+  }
+}
+@media (max-width: 480px) {
+  #main .todofullpage .todo-conatainer {
+    padding: 0 12px 16px;
+  }
+}
+#main .todofullpage .todo-conatainer .task-header {
+  word-break: break-word;
+  overflow-wrap: anywhere;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  gap: 20px;
+}
+#main .todofullpage .todo-conatainer .task-details {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.3s ease, opacity 0.3s ease;
+  padding-left: 25px;
+}
+#main .todofullpage .todo-conatainer .task.active .task-details {
+  max-height: 200px;
+  opacity: 1;
+  margin-top: 10px;
+}
+#main .todofullpage .todo-conatainer .arrow {
+  display: inline-block;
+  transition: 0.3s ease;
+  margin-right: 10px;
+}
+#main .todofullpage .todo-conatainer .task.active .arrow {
+  transform: rotate(90deg);
+}
+#main .todofullpage .todo-conatainer .important {
+  color: #ffb347;
+  font-size: 0.8rem;
+}
+#main .todofullpage .todo-conatainer .addtask {
+  height: 100%;
+  width: 33%;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  overflow: hidden;
+}
+@media (max-width: 768px) {
+  #main .todofullpage .todo-conatainer .addtask {
+    width: 100%;
+    height: auto;
+  }
+}
+#main .todofullpage .todo-conatainer .addtask form {
+  height: 100%;
+  display: flex;
+  padding: 20px;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+@media (max-width: 768px) {
+  #main .todofullpage .todo-conatainer .addtask form {
+    height: auto;
+    gap: 12px;
+  }
+}
+#main .todofullpage .todo-conatainer .addtask form #task-inp {
+  background-color: var(--sec);
+  width: 100%;
+  font-size: 1.2rem;
+  padding: 10px 20px;
+  border-radius: 10px;
+  outline: none;
+  border: none;
+  flex-shrink: 0;
+}
+@media (max-width: 480px) {
+  #main .todofullpage .todo-conatainer .addtask form #task-inp {
+    font-size: 1rem;
+    padding: 8px 14px;
+  }
+}
+#main .todofullpage .todo-conatainer .addtask form textarea {
+  background-color: var(--sec);
+  width: 100%;
+  flex-grow: 1;
+  resize: none;
+  font-size: 1.2rem;
+  padding: 10px 20px;
+  border-radius: 10px;
+  outline: none;
+  border: none;
+  margin: 15px 0;
+  min-height: 0;
+}
+@media (max-width: 768px) {
+  #main .todofullpage .todo-conatainer .addtask form textarea {
+    flex-grow: 0;
+    height: 100px;
+    margin: 0;
+  }
+}
+@media (max-width: 480px) {
+  #main .todofullpage .todo-conatainer .addtask form textarea {
+    height: 80px;
+    font-size: 1rem;
+    padding: 8px 14px;
+  }
+}
+#main .todofullpage .todo-conatainer .addtask form .imp {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+#main .todofullpage .todo-conatainer .addtask form .imp input {
+  scale: 1.3;
+}
+#main .todofullpage .todo-conatainer .addtask form .imp label {
+  padding-left: 20px;
+}
+#main .todofullpage .todo-conatainer .addtask form button {
+  margin-left: auto;
+  flex-shrink: 0;
+  min-width: 140px;
+  transition: all ease 0.2s;
+  background-color: var(--sec);
+  width: 40%;
+  font-size: 1rem;
+  padding: 10px 20px;
+  border-radius: 10px;
+  outline: none;
+  border: none;
+  align-self: flex-end;
+  flex-shrink: 0;
+  cursor: pointer;
+}
+@media (max-width: 480px) {
+  #main .todofullpage .todo-conatainer .addtask form button {
+    width: 50%;
+    font-size: 0.9rem;
+    padding: 8px 14px;
+  }
+}
+#main .todofullpage .todo-conatainer .addtask form button:active {
+  scale: 0.98;
+}
+#main .todofullpage .todo-conatainer .alltask {
+  overflow-y: auto;
+  overflow-x: hidden;
+  overflow: auto;
+  height: 100%;
+  width: 65%;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 30px;
+}
+@media (max-width: 768px) {
+  #main .todofullpage .todo-conatainer .alltask {
+    width: 100%;
+    height: 320px;
+    padding: 16px;
+  }
+}
+@media (max-width: 480px) {
+  #main .todofullpage .todo-conatainer .alltask {
+    height: 260px;
+    padding: 12px;
+  }
+}
+#main .todofullpage .todo-conatainer .alltask .task {
+  width: 100%;
+  overflow: hidden;
+  background-color: var(--sec);
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+#main .todofullpage .todo-conatainer .alltask .task .task-details {
+  word-break: break-word;
+  overflow-wrap: anywhere;
+}
+#main .todofullpage .todo-conatainer .alltask .task span {
+  color: red;
+  padding: 5px;
+  font-size: 0.7rem;
+  border-radius: 50px;
+}
+#main .todofullpage .todo-conatainer .alltask .task span.true {
+  opacity: 1;
+}
+#main .todofullpage .todo-conatainer .alltask .task span.false {
+  opacity: 0;
+}
+#main .todofullpage .todo-conatainer .alltask .task button {
+  margin-left: 20px;
+  flex-shrink: 0;
+  min-width: 140px;
+  align-self: flex-end;
+  margin-top: 10px;
+  min-width: 140px;
+  width: auto;
+  flex-shrink: 0;
+  color: var(--sec);
+  transition: all ease 0.2s;
+  background-color: rgba(28, 253, 28, 0.822);
+  font-size: 0.7rem;
+  padding: 10px 0;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+@media (max-width: 768px) {
+  #main .todofullpage .todo-conatainer .alltask .task button {
+    width: 30%;
+    font-size: 0.65rem;
+  }
+}
+@media (max-width: 480px) {
+  #main .todofullpage .todo-conatainer .alltask .task button {
+    width: 36%;
+    font-size: 0.6rem;
+    padding: 8px 0;
+  }
+}
+#main .todofullpage .todo-conatainer .alltask .task button:active {
+  scale: 0.98;
+}
+#main .todofullpage .todo-conatainer .alltask .task h3 {
+  flex: 1;
+  min-width: 0;
+  word-break: break-word;
+  font-size: 0.95rem;
+}
+@media (max-width: 480px) {
+  #main .todofullpage .todo-conatainer .alltask .task h3 {
+    font-size: 0.8rem;
+  }
+}
+#main .plannerfullpage {
+
+  padding: 0 40px;
+  overflow-y: auto;
+}
+@media (max-width: 768px) {
+  #main .plannerfullpage {
+    padding: 0 20px;
+  }
+}
+@media (max-width: 480px) {
+  #main .plannerfullpage {
+    padding: 0 12px;
+  }
+}
+#main .plannerfullpage .dayplanner {
+  height: auto;
+  min-height: 80%;
+  width: 100%;
+  padding: 20px 30px;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 15px 0;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+@media (max-width: 768px) {
+  #main .plannerfullpage .dayplanner {
+    padding: 16px;
+  }
+}
+@media (max-width: 480px) {
+  #main .plannerfullpage .dayplanner {
+    padding: 12px;
+  }
+}
+#main .plannerfullpage .clear-planner {
+  position: relative;
+  left: 1%;
+  height: 30px;
+  width: 100px;
+  margin: 15px 0px;
+  border: none;
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 50px;
+  transition: all 0.3s ease;
+}
+#main .plannerfullpage .clear-planner:hover {
+  transform: translateY(-3px);
+  background-color: rgba(139, 5, 5, 0.336);
+}
+#main .plannerfullpage .clear-planner:active {
+  scale: 0.9;
+}
+#main .plannerfullpage .dayplannertime {
+  position: relative;
+  width: 49%;
+  display: flex;
+  align-items: center;
+}
+@media (max-width: 480px) {
+  #main .plannerfullpage .dayplannertime {
+    width: 100%;
+  }
+}
+#main .plannerfullpage .dayplannertime input {
+  padding: 30px 0 15px 40px;
+  width: 100%;
+  border-radius: 10px;
+  background-color: var(--sec);
+  font-size: 20px;
+  outline: none;
+  border: none;
+  color: #fff;
+}
+@media (max-width: 768px) {
+  #main .plannerfullpage .dayplannertime input {
+    font-size: 15px;
+    padding: 26px 0 12px 36px;
+  }
+}
+@media (max-width: 480px) {
+  #main .plannerfullpage .dayplannertime input {
+    font-size: 14px;
+    padding: 24px 0 10px 80px;
+  }
+}
+#main .plannerfullpage .dayplannertime p {
+  position: absolute;
+  top: 7%;
+  left: 4%;
+  font-size: 12px;
+}
+@media (max-width: 480px) {
+  #main .plannerfullpage .dayplannertime p {
+    font-size: 11px;
+    left: 3%;
+  }
+}
+#main .motivationfullpage {
+  position: relative;
+}
+#main .motivationfullpage .motivational-container {
+  height: 300px;
+  width: 600px;
+  position: absolute;
+  border-radius: 50px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+@media (max-width: 768px) {
+  #main .motivationfullpage .motivational-container {
+    width: 90%;
+    height: auto;
+    min-height: 220px;
+    top: 45%;
+  }
+}
+@media (max-width: 480px) {
+  #main .motivationfullpage .motivational-container {
+    width: 95%;
+    top: 42%;
+  }
+}
+#main .motivationfullpage .motivational-container::after {
+  content: "";
+  height: 100%;
+  width: 60%;
+  border-radius: 50px;
+  scale: 0.8;
+  position: absolute;
+  background-color: red;
+  z-index: 8;
+  filter: blur(100px);
+}
+#main .motivationfullpage .motivational-wrapper {
+  height: 100%;
+  width: 100%;
+  z-index: 10;
+  position: absolute;
+  border-radius: 50px;
+  padding-top: 50px;
+}
+@media (max-width: 480px) {
+  #main .motivationfullpage .motivational-wrapper {
+    padding-top: 30px;
+  }
+}
+#main .motivationfullpage .motivational-wrapper img {
+  position: absolute;
+  height: 60px;
+  opacity: 0.3;
+  top: 10%;
+  right: 2%;
+}
+@media (max-width: 480px) {
+  #main .motivationfullpage .motivational-wrapper img {
+    height: 40px;
+  }
+}
+#main .motivationfullpage .mv {
+  padding: 10px;
+}
+@media (max-width: 480px) {
+  #main .motivationfullpage .mv {
+    padding: 6px;
+  }
+}
+#main .motivationfullpage .mv h2 {
+  font-weight: 500;
+  margin-top: 60px;
+  line-height: 1.5;
+  padding: 0;
+  transform: translateY(0);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+@media (max-width: 768px) {
+  #main .motivationfullpage .mv h2 {
+    font-size: 18px;
+    margin-top: 20px;
+  }
+}
+@media (max-width: 480px) {
+  #main .motivationfullpage .mv h2 {
+    font-size: 15px;
+    margin-top: 14px;
+  }
+}
+#main .motivationfullpage .next-quote-btn {
+  position: absolute;
+  bottom: 4%;
+  left: 93%;
+  transform: translateX(-50%);
+  background-color: rgba(255, 255, 255, 0.08);
+  border: 2px solid rgba(252, 222, 192, 0.4);
+  color: var(--pre);
+  font-size: 21px;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all ease 0.2s;
+  z-index: 20;
+}
+@media (max-width: 768px) {
+  #main .motivationfullpage .next-quote-btn {
+    left: 50%;
+    bottom: 6%;
+    width: 48px;
+    height: 48px;
+    font-size: 18px;
+  }
+}
+#main .motivationfullpage .next-quote-btn:hover {
+  background-color: rgba(255, 255, 255, 0.18);
+  border-color: var(--pre);
+  box-shadow: 0 0 16px rgba(252, 222, 192, 0.2);
+}
+#main .motivationfullpage .next-quote-btn:active {
+  scale: 0.9;
+}
+#main .timerfullpage {
+  position: relative;
+}
+#main .timerfullpage > h2 {
+  font-size: 34px;
+}
+@media (max-width: 768px) {
+  #main .timerfullpage > h2 {
+    font-size: 24px;
+  }
+}
+@media (max-width: 480px) {
+  #main .timerfullpage > h2 {
+    font-size: 19px;
+  }
+}
+#main .timerfullpage .pomo-timer {
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  width: 90%;
+}
+#main .timerfullpage .pomo-timer .focus-tip {
+  margin-top: 20px;
+  opacity: 0.7;
+  font-size: 14px;
+}
+@media (max-width: 480px) {
+  #main .timerfullpage .pomo-timer .focus-tip {
+    font-size: 12px;
+    margin-top: 12px;
+  }
+}
+#main .timerfullpage .pomo-timer h2 {
+  font-size: 65px;
+  padding: 0;
+}
+@media (max-width: 768px) {
+  #main .timerfullpage .pomo-timer h2 {
+    font-size: 50px;
+  }
+}
+@media (max-width: 480px) {
+  #main .timerfullpage .pomo-timer h2 {
+    font-size: 38px;
+  }
+}
+#main .timerfullpage .pomo-timer button {
+  font-size: 20px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(12px);
+  padding: 10px 35px;
+  margin: 10px;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+@media (max-width: 768px) {
+  #main .timerfullpage .pomo-timer button {
+    font-size: 16px;
+    padding: 8px 24px;
+    margin: 6px;
+  }
+}
+@media (max-width: 480px) {
+  #main .timerfullpage .pomo-timer button {
+    font-size: 14px;
+    padding: 8px 18px;
+    margin: 5px;
+  }
+}
+#main .timerfullpage .pomo-timer button:hover {
+  transform: translateY(-3px);
+  background: rgba(255, 255, 255, 0.12);
+}
+#main .timerfullpage .pomo-timer button:active {
+  scale: 0.9;
+}
+#main .timerfullpage .session {
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 12px 28px;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(46, 204, 113, 0.15);
+  border: 1px solid rgba(46, 204, 113, 0.3);
+  backdrop-filter: blur(10px);
+  white-space: nowrap;
+}
+@media (max-width: 480px) {
+  #main .timerfullpage .session {
+    padding: 8px 18px;
+    top: 22%;
+  }
+}
+#main .timerfullpage .session h3 {
+  font-size: 16px;
+  font-weight: 500;
+}
+@media (max-width: 480px) {
+  #main .timerfullpage .session h3 {
+    font-size: 13px;
+  }
+}
