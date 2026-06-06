@@ -14,17 +14,10 @@ A modern productivity dashboard built with HTML, CSS, and JavaScript.
 
 ## Screenshots
 
-## Home Dashboard
 
 ![Home Dashboard](images/home.png)
 
-## To-Do List
 
-![To Do List](images/todo.png)
-
-## Pomodoro Timer
-
-![Pomodoro Timer](images/pomodoro.png)
 ## Technologies Used
 
 - HTML5
