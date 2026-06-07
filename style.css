@@ -46,14 +46,34 @@ html, body {
   flex-wrap: wrap;
   justify-content: center;
   position: absolute;
+  /* FIX: allow scroll but hide the scrollbar */
   overflow-y: auto;
+  scrollbar-width: none;        /* Firefox */
+  -ms-overflow-style: none;     /* IE/Edge */
+}
+/* Chrome / Safari hidden scrollbar */
+#main section.allelem::-webkit-scrollbar {
+  display: none;
 }
 #main section.allelem .allfeature {
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
+  /* FIX: gap shrinks on smaller screens via media queries below */
   gap: 50px;
+  margin-top: 20px;
+  padding-bottom: 30px;  /* breathing room at bottom on scroll */
+}
+@media (max-width: 768px) {
+  #main section.allelem .allfeature {
+    gap: 24px;
+  }
+}
+@media (max-width: 480px) {
+  #main section.allelem .allfeature {
+    gap: 16px;
+  }
 }
 
 #main section.allelem header {
@@ -163,8 +183,12 @@ html, body {
   }
 }
 #main .elem {
+    display:flex;
+  flex-direction:column;
+  align-items:center;
   cursor: pointer;
-  margin-top: 20px;
+  gap: 10px;
+  
   position: relative;
   transition: all ease 0.2s;
   height: 340px;
@@ -172,24 +196,32 @@ html, body {
   font-size: 17px;
   text-align: center;
   border-radius: 20px;
-  background-color: rgb(169, 107, 107);
+  background-color: transparent;
 }
 #main .elem img {
   border-radius: 20px;
   -o-object-fit: cover;
      object-fit: cover;
-  height: 100%;
+  /* FIX: flex:1 + min-height:0 fills remaining space without overflowing the card,
+     so the h3 label always stays inside */
+  flex: 1;
+  min-height: 0;
+  height: auto;
   width: 100%;
 }
+#main .pomoelem img{
+  object-fit: contain;
+}
 #main .elem h3 {
-  position: absolute;
-  left: 50%;
-  bottom: -10px;
-  transform: translateX(-50%);
+  position: static;
   width: 100%;
+  transform: none;
+  /* FIX: flex-shrink:0 keeps the label from being squashed, stays visible inside card */
+  flex-shrink: 0;
+  padding: 6px 0 10px;
+  font-size: 15px;
   text-align: center;
-  font-size: 18px;
-  font-weight: 400;
+  font-weight: 500;
 }
 #main .elem:active {
   scale: 0.95;
@@ -200,8 +232,9 @@ html, body {
 }
 @media (max-width: 768px) {
   #main .elem {
-    height: 240px;
-    width: 155px;
+    /* FIX: fixed width so cards never grow wider than desktop size */
+    width: 160px;
+    height: 220px;
   }
   #main .elem h3 {
     font-size: 14px;
@@ -209,8 +242,8 @@ html, body {
 }
 @media (max-width: 480px) {
   #main .elem {
-    height: 180px;
     width: 140px;
+    height: 190px;
   }
   #main .elem h3 {
     font-size: 13px;
@@ -230,11 +263,13 @@ html, body {
 #main .fullelem > h2 {
   padding: 30px 30px 10px;
   font-size: 26px;
+  margin-bottom: 20px;
 }
 @media (max-width: 768px) {
   #main .fullelem > h2 {
     font-size: 20px;
-    padding: 20px 20px 8px;
+    padding-top:70px;
+      padding-right:90px;
   }
 }
 @media (max-width: 480px) {
@@ -268,8 +303,9 @@ html, body {
   #main .fullelem .back {
     font-size: 12px;
     padding: 8px 14px;
-    top: 3%;
-    right: 3%;
+    top:15px;
+      right:15px;
+      z-index:100;
   }
 }
 #main .todofullpage .todo-conatainer {
@@ -413,7 +449,6 @@ html, body {
 }
 #main .todofullpage .todo-conatainer .addtask form button {
   margin-left: auto;
-  flex-shrink: 0;
   min-width: 140px;
   transition: all ease 0.2s;
   background-color: var(--sec);
@@ -438,9 +473,8 @@ html, body {
   scale: 0.98;
 }
 #main .todofullpage .todo-conatainer .alltask {
-  overflow-y: auto;
-  overflow-x: hidden;
-  overflow: auto;
+ overflow-y: auto;
+overflow-x: hidden;
   height: 100%;
   width: 65%;
   background-color: rgba(255, 255, 255, 0.05);
@@ -528,7 +562,6 @@ html, body {
 }
 #main .todofullpage .todo-conatainer .alltask .task h3 {
   flex: 1;
-  min-width: 0;
   word-break: break-word;
   font-size: 0.95rem;
 }
@@ -652,14 +685,7 @@ html, body {
   left: 50%;
   transform: translate(-50%, -50%);
 }
-@media (max-width: 768px) {
-  #main .motivationfullpage .motivational-container {
-    width: 90%;
-    height: auto;
-    min-height: 220px;
-    top: 45%;
-  }
-}
+
 @media (max-width: 480px) {
   #main .motivationfullpage .motivational-container {
     width: 95%;
@@ -706,29 +732,51 @@ html, body {
   padding: 10px;
 }
 @media (max-width: 480px) {
-  #main .motivationfullpage .mv {
-    padding: 6px;
-  }
+ #main .motivationfullpage .mv {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
 }
 #main .motivationfullpage .mv h2 {
   font-weight: 500;
-  margin-top: 60px;
+  max-width: 90%;
+  margin: 0 auto;
   line-height: 1.5;
   padding: 0;
   transform: translateY(0);
   transition: opacity 0.3s ease, transform 0.3s ease;
 }
-@media (max-width: 768px) {
-  #main .motivationfullpage .mv h2 {
-    font-size: 18px;
-    margin-top: 20px;
-  }
-}
+
 @media (max-width: 480px) {
   #main .motivationfullpage .mv h2 {
     font-size: 15px;
     margin-top: 14px;
   }
+}
+@media (max-width:768px){
+
+  .motivationfullpage{
+    position: relative;
+  }
+
+  .next-quote-btn{
+    position: fixed !important;
+
+    left: 50% !important;
+    right: auto !important;
+
+    bottom: 20px !important;
+    top: auto !important;
+
+    transform: translateX(-50%) !important;
+
+    margin: 0 !important;
+  }
+
 }
 #main .motivationfullpage .next-quote-btn {
   position: absolute;
@@ -749,15 +797,7 @@ html, body {
   transition: all ease 0.2s;
   z-index: 20;
 }
-@media (max-width: 768px) {
-  #main .motivationfullpage .next-quote-btn {
-    left: 50%;
-    bottom: 6%;
-    width: 48px;
-    height: 48px;
-    font-size: 18px;
-  }
-}
+
 #main .motivationfullpage .next-quote-btn:hover {
   background-color: rgba(255, 255, 255, 0.18);
   border-color: var(--pre);
@@ -765,6 +805,70 @@ html, body {
 }
 #main .motivationfullpage .next-quote-btn:active {
   scale: 0.9;
+}
+
+@media (max-width: 768px) {
+
+  .motivationfullpage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+
+  .motivationfullpage > h2 {
+    width: 100%;
+    text-align: left;
+    margin-top: 20px;
+  }
+
+  .motivational-container {
+    position: relative;
+    width: 100%;
+    max-width: 320px;
+    height: 400px;
+    top: unset;
+    left: unset;
+    transform: none;
+    margin-top: 40px;
+  }
+
+  .motivational-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding: 20px;
+  }
+
+  .mv {
+    width: 100%;
+    text-align: center;
+  }
+
+  .mv h2 {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin: 0;
+    text-align: center;
+  }
+
+  /* Quote image */
+  .motivational-wrapper img {
+    height: 45px;
+    top: 35%;
+    right: 10%;
+    opacity: 0.25;
+  }
+
+  /* Next button */
+  .next-quote-btn {
+    position: relative;
+    left: unset;
+    bottom: unset;
+    transform: none;
+    margin-top: 20px;
+  }
 }
 #main .timerfullpage {
   position: relative;
@@ -782,6 +886,7 @@ html, body {
     font-size: 19px;
   }
 }
+
 #main .timerfullpage .pomo-timer {
   position: absolute;
   top: 55%;

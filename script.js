@@ -134,7 +134,6 @@ function Dailyplanner() {
     });
   });
 
-   var dpinput = document.querySelectorAll(".dayplanner input");
    
 
    let clearBtn = document.querySelector(".clear-planner");
@@ -253,10 +252,6 @@ function pomodoroTimer() {
   }
  let sessionText = document.querySelector(".session-text");
  let sessionIcon = document.querySelector(".session-icon");
- sessionText.textContent = "Break Time";
- sessionIcon.textContent = "☕";
- sessionText.textContent = "Work Session";
- sessionIcon.textContent = "🍅";
 
 
 
@@ -351,26 +346,36 @@ function WeatherFunctionality() {
   }, 1000);
 
 
-
+const header = document.querySelector(".allelem header");
 function updateHeaderBackground() {
-  const header = document.querySelector(".allelem header");
-
-  
   const hour = new Date().getHours();
 
-  //Night: 7 PM to 2:59 AM
+  // Night: 7 PM - 2:59 AM
   if (hour >= 19 || hour < 3) {
     header.style.backgroundImage = "url('./images/night-city.jpg')";
     header.style.backgroundPosition = "0% 70%";
-  } 
-  // Day: 3 AM to 6:59 PM
+  }
+
+  // Morning: 3 AM - 9:59 AM
+  else if (hour >= 3 && hour < 10) {
+    header.style.backgroundImage = "url('./images/morning-city.jpg')";
+    header.style.backgroundPosition = "0% 47%";
+  }
+
+  // Day: 10 AM - 3:59 PM  
+  else if (hour >= 10 && hour < 16) {
+    header.style.backgroundImage = "url('./images/day-city.jpg')";
+    header.style.backgroundPosition = "0% 53%";
+  }
+
+  // Evening: 4 PM - 6:59 PM
   else {
-    header.style.backgroundImage ="url('./images/day-city.jpg')";
-    header.style.backgroundPosition = "0% 52%";
+    header.style.backgroundImage = "url('./images/evening-city.jpg')";
+    header.style.backgroundPosition = "0% 93%";
   }
 }
-updateHeaderBackground();
 
+updateHeaderBackground();
 
 setInterval(updateHeaderBackground, 60000);
 
